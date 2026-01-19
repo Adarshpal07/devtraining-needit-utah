@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="486e2a598366f69046cccfc0deaad37f" label="Demo Mixed Datatypes" max_length="40" name="x_58872_needit_demo_mixed_datatypes" type="collection">
+        <element default="None" label="Full Name" max_length="40" name="u_full_name" type="string"/>
+        <element default="None" label="Record ID" max_length="40" name="u_record_id" type="integer" unique="true"/>
+        <element label="Assigned To" max_length="32" name="u_assigned_to" reference="sys_user" type="reference"/>
+        <element default="None" label="Hire Date" max_length="40" name="u_hire_date" type="glide_date"/>
+        <element label="Assignment Group" max_length="32" name="u_assignment_group" reference="sys_user_group" type="reference"/>
+        <element default="None" label="Salary Amount" max_length="20" name="u_salary_amount" type="decimal"/>
+        <element default="True" label="IsActive" max_length="40" name="u_is_active" type="boolean"/>
+        <element label="Requested By" max_length="32" name="u_requested_by" reference="sys_user" type="reference"/>
+        <element choice="3" default="Standard" label="Request Type" max_length="40" name="u_request_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Standard" sequence="100" value="standard"/>
+                <element inactive_on_update="false" label="Enhancement" sequence="300" value="enhancement"/>
+                <element inactive_on_update="false" label="Urgent" sequence="200" value="urgent"/>
+                <element inactive_on_update="false" label="Bug" sequence="400" value="bug"/>
+            </choice>
+        </element>
+        <element default="None" label="Email" max_length="40" name="u_email" type="string"/>
+        <index name="index">
+            <element name="u_assigned_to"/>
+        </index>
+        <index name="index2">
+            <element name="u_assignment_group"/>
+        </index>
+        <index name="index3" unique="true">
+            <element name="u_record_id"/>
+        </index>
+        <index name="index4">
+            <element name="u_requested_by"/>
+        </index>
+    </element>
+</database>
